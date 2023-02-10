@@ -1,0 +1,13 @@
+<ul>
+  <li
+    [ngClass]="todo.done ? 'line-over-text' : 'not-done'"
+    *ngFor="let todo of todos; index as i"
+    (click)="switchDone(i)"
+  >
+    {{ todo.label }}
+  </li>
+
+  Ajouter une tache :
+  <input type="text" [(ngModel)]="todos.push({label : name, done: false})"/>
+
+</ul>
