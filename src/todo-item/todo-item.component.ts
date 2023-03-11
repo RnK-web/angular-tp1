@@ -14,16 +14,15 @@ import { Todo } from '../todo';
 export class TodoItemComponent implements OnInit {
   @Input() todo: Todo;
   edit: boolean = false;
-  name: string;
   constructor() {}
-  switchDone() {
+  switchDone(): void {
     this.todo.done = !this.todo.done;
   }
-  changeName() {
+  changeName(): void {
     M.toast({ html: 'Tache ' + this.todo.label + ' a été mise à jour !' });
     this.edit = false;
   }
-  editMode() {
+  editMode(): void {
     this.edit = true;
   }
   ngOnInit() {}

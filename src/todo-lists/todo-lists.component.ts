@@ -3,7 +3,7 @@ declare var M: any;
 import { Component, NgModule, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Todo } from '../todo';
+import { TodoServiceService } from '../todo-service.service';
 import { TodoItemComponent } from '../todo-item/todo-item.component';
 
 @Component({
@@ -15,15 +15,18 @@ import { TodoItemComponent } from '../todo-item/todo-item.component';
 })
 export class TodoListsComponent implements OnInit {
   name: string;
-  public todos: Todo[] = [
-    { label: 'Premier', done: false },
-    { label: 'Deuxieme', done: false },
-    { label: 'Troisieme', done: true },
-  ];
-  constructor() {}
+  todoService: TodoServiceService;
+
+  constructor(todoService: TodoServiceService) {
+    this.todoService = todoService;
+
+    this.todoService.createTodo('Premier');
+    this.todoService.createTodo('Deuxieme');
+    this.todoService.createTodo('Troisieme');
+  }
   createTodo(name: string) {
     M.toast({ html: 'Tache ' + name + ' a été crée !' });
-    this.todos.push({ label: name, done: false });
+    this.todoService.createTodo(name);
   }
   ngOnInit() {}
 }

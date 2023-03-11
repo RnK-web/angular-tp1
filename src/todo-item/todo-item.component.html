@@ -8,11 +8,18 @@
           (click)="switchDone()"
           >{{ todo.label }}</span
         >
+        <span> id :{{ todo.id }}</span>
+        <br />
+        <span> creation date:{{ todo.creationDate }} </span>
         <i class="tiny material-icons" (click)="editMode()">create</i>
       </div>
 
       <ng-template #elseBlock>
-        <input type="text" [(ngModel)]="this.todo.label" (keyup.enter)="changeName()"/>
+        <input
+          type="text"
+          [(ngModel)]="this.todo.label"
+          (keyup.enter)="changeName()"
+        />
       </ng-template>
     </div>
   </div>
