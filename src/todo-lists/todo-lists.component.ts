@@ -1,3 +1,5 @@
+declare var M: any;
+
 import { Component, NgModule, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -20,6 +22,7 @@ export class TodoListsComponent implements OnInit {
   ];
   constructor() {}
   createTodo(name: string) {
+    M.toast({ html: 'Tache ' + name + ' a été crée !' });
     this.todos.push({ label: name, done: false });
   }
   ngOnInit() {}

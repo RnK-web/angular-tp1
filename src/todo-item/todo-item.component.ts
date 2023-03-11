@@ -1,3 +1,4 @@
+declare var M: any;
 import { CommonModule } from '@angular/common';
 import { Component, NgModule, OnInit, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -18,8 +19,8 @@ export class TodoItemComponent implements OnInit {
   switchDone() {
     this.todo.done = !this.todo.done;
   }
-  changeName(name: string) {
-    this.todo.label = name;
+  changeName() {
+    M.toast({ html: 'Tache ' + this.todo.label + ' a été mise à jour !' });
     this.edit = false;
   }
   editMode() {

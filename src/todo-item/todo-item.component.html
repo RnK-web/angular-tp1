@@ -12,8 +12,7 @@
       </div>
 
       <ng-template #elseBlock>
-        <input type="text" [(ngModel)]="name" />
-        <button (click)="changeName(name)">change name</button>
+        <input type="text" [(ngModel)]="this.todo.label" (keyup.enter)="changeName()"/>
       </ng-template>
     </div>
   </div>
