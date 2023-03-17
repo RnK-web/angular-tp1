@@ -1,16 +1,18 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
+  standalone: true,
   name: 'customDate',
 })
 export class CustomDatePipe implements PipeTransform {
-  transform(value: any, mode?: boolean): any {
-    let defaultString: string = `${Date.prototype.getDate()}/
-    ${Date.prototype.getMonth()}/
-    ${Date.prototype.getFullYear()}`;
-    return mode
-      ? defaultString +
-          ` ${Date.prototype.getHours()}:${Date.prototype.getMinutes()}`
-      : defaultString;
+  transform(timestamp: number, withHour: boolean): string {
+    const dateVal: Date = new Date(timestamp);
+    let result = `${dateVal.getDate()}/${
+      dateVal.getMonth() + 1
+    }/${dateVal.getFullYear()}`;
+    if (withHour) {
+      result += ` ${dateVal.getHours()}:${dateVal.getMinutes()}`;
+    }
+    return result;
   }
 }

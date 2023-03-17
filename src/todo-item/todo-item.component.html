@@ -10,7 +10,7 @@
         >
         <span> id :{{ todo.id }}</span>
         <br />
-        <span> creation date:{{ todo.creationDate }} </span>
+        <span> creation date: {{ todo.creationDate | customDate: true }} </span>
         <i class="tiny material-icons" (click)="editMode()">create</i>
       </div>
 

@@ -2,12 +2,13 @@ declare var M: any;
 import { CommonModule } from '@angular/common';
 import { Component, NgModule, OnInit, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CustomDatePipe } from '../custom-date.pipe';
 import { Todo } from '../todo';
 
 @Component({
   selector: 'app-todo-item',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, CustomDatePipe],
   templateUrl: './todo-item.component.html',
   styleUrls: ['./todo-item.component.css'],
 })
